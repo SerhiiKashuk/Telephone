@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+<title>Telephone Book</title>
+<style>
+.error {
+	color: red;
+	font-weight: bold;
+}
+</style>
+
+<th:block th:include="fragments/headerinc :: head"></th:block>
+</head>
+<body>
+	<div class="container">
+		<th:block th:include="fragments/header :: header"></th:block>
+
+		<h2>Contact Details</h2>
+
+		<div>
+			<form class="form-horizontal" th:object="${contact}"
+				th:action="@{/contact}" method="post">
+				<input type="hidden" th:field="*{id}" /> <input type="hidden"
+					th:field="*{user_id}" />
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Surname:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{surname}" />
+					</div>
+					<div style="font-size: 20; color: #FF1C19;" align="center"
+						th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">
+					</div>
+
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Name:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{name}" />
+					</div>
+					<div style="font-size: 20; color: #FF1C19;" align="center"
+						th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Patronymic:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{patronymic}" />
+					</div>
+					<div style="font-size: 20; color: #FF1C19;" align="center"
+						th:if="${#fields.hasErrors('patronymic')}"
+						th:errors="*{patronymic}"></div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Mobile:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{mobile}" />
+					</div>
+					<div style="font-size: 20; color: #FF1C19;" align="center"
+						th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Homephone:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{homephone}" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Address:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{address}" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Email:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{email}" />
+					</div>
+					<div style="font-size: 20; color: #FF1C19;" align="center"
+						th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+					</div>
+				</div>
+
+				<div class="row">
+					<button type="submit" class="btn btn-default">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

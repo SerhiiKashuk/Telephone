@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+<title>Telephone Book</title>
+
+<th:block th:include="fragments/headerinc :: head"></th:block>
+</head>
+<body>
+	<div class="container">
+		<th:block th:include="fragments/header :: header"></th:block>
+
+		<h2>Contacts</h2>
+		<div>
+			<form class="form-horizontal">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Surname:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${cont.surname}">name</p>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Name:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${cont.name}">name</p>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Patronymic:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${cont.patronymic}">name</p>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Mobile:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${cont.mobile}">mobile</p>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Homephone:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${cont.homephone}">homephone</p>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Address:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${cont.address}">address</p>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Email:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${cont.email}">email</p>
+					</div>
+				</div>
+
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

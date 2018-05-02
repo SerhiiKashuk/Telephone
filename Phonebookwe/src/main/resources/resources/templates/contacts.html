@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+<title>Telephone Book</title>
+
+<th:block th:include="fragments/headerinc :: head"></th:block>
+</head>
+<body>
+	<div class="container">
+		<th:block th:include="fragments/header :: header"></th:block>
+		<div th:if="${not #lists.isEmpty(contacts)}">
+			<h2>Contacts</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Id</th>
+					<th>Surname</th>
+					<th>Name</th>
+					<th>Patronymic</th>
+					<th>Mobile</th>
+					<th>Home Phone</th>
+					<th>Address</th>
+					<th>Email</th>
+					<th>View</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+				<tr th:each="contact : ${contacts}">
+					<td th:text="${contact.id}"><a href="/contact/${contact.id}">Id</a></td>
+					<td th:text="${contact.surname}"></td>
+					<td th:text="${contact.name}"></td>
+					<td th:text="${contact.patronymic}"></td>
+					<td th:text="${contact.mobile}"></td>
+					<td th:text="${contact.homephone}"></td>
+					<td th:text="${contact.address}"></td>
+					<td th:text="${contact.email}"></td>
+					<td><a th:href="${'/contact/' + contact.id}">View</a></td>
+					<td><a th:href="${'/contact/edit/' + contact.id}">Edit</a></td>
+					<td><a th:href="${'/contact/delete/' + contact.id}">Delete</a></td>
+				</tr>
+			</table>
+
+		</div>
+	</div>
+
+</body>
+</html>
